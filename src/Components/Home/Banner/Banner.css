@@ -1,10 +1,10 @@
 .img-animation{
-    width: 80%;
+    width: 90%;
     animation: imgAnimation infinite 4s alternate-reverse;
 }
 
 @keyframes imgAnimation {
-    0%{
+    /* 0%{
         transform:scale(1);
     }
     50%{
@@ -12,6 +12,12 @@
     }
     100%{
         transform: translate(1);
+    } */
+    from{
+        transform: translateY(40px);
+    }
+    to{
+        transform: translateY(-40px);
     }
 
 }
