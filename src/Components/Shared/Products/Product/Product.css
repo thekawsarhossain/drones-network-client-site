@@ -14,3 +14,12 @@
     transform: translateY(-12px);
     margin:0 4px;
 }
+.title:before{
+    content: '';
+    display: inline-block;
+    width: 3%;
+    border-bottom: 1px solid #212121;
+    margin: auto;
+    transform: translateY(-12px);
+    margin:0 4px;
+}
