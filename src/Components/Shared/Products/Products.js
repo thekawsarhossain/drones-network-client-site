@@ -14,7 +14,7 @@ const Products = () => {
 
     return (
         <Container sx={{ my: 10 }}>
-            <Typography variant="h4" style={{ fontWeight: 'bold' }}>FEATURED COLLECTION</Typography>
+            <Typography variant="h4" className="title" style={{ fontWeight: 'bold', textAlign: 'left' }}>FEATURED COLLECTION</Typography>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ py: 6 }}>
                 {
                     products.map(product => <Product

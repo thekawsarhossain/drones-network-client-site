@@ -5,3 +5,12 @@
 .product-card:hover{
     border: 7px solid #212121;
 }
+.title:after{
+    content: '';
+    display: inline-block;
+    width: 3%;
+    border-bottom: 1px solid #212121;
+    margin: auto;
+    transform: translateY(-12px);
+    margin:0 4px;
+}
