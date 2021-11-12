@@ -1,0 +1,7 @@
+.product-card{
+    border: 7px solid #f0eeee;
+    transition: all 0.3s;
+}
+.product-card:hover{
+    border: 7px solid #212121;
+}
