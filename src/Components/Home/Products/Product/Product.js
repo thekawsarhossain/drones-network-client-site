@@ -6,13 +6,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import './Product.css';
+import { useHistory } from 'react-router';
 
 const Product = ({ products }) => {
-    const { img, name, price, description } = products;
+    const { img, name, price, description, _id } = products;
+
+    const history = useHistory();
 
     //  handle buy here 
-    const handleBuy = () => {
-
+    const handleBuy = id => {
+        history.push(`/product/:${id}`);
     }
 
     return (
@@ -35,7 +38,7 @@ const Product = ({ products }) => {
                         Price: {price}$
                     </Typography>
 
-                    <Button onClick={handleBuy} sx={{ bgcolor: 'text.primary' }} size="small" variant="contained">Buy Now</Button>
+                    <Button onClick={() => handleBuy(_id)} sx={{ bgcolor: 'text.primary' }} size="small" variant="contained">Buy Now</Button>
                 </CardContent>
             </Card>
         </Grid>

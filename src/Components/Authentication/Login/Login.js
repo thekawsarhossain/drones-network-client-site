@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import logo from '../../../image/logo-2.png';
 import useAuth from '../../../Hooks/useAuth';
+import { useHistory, useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
 const Login = () => {
@@ -22,10 +23,14 @@ const Login = () => {
         setUserData(newUser)
     }
 
+    const location = useLocation();
+    const history = useHistory();
+
     // login function 
-    const handleLogin = (email, password, histroy, location) => {
-        loginUser(userData.email, userData.password);
+    const handleLogin = () => {
+        loginUser(userData.email, userData.password, history, location);
     }
+
 
     return (
         <Container sx={{ my: 5 }}>
