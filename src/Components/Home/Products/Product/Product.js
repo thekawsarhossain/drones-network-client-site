@@ -9,6 +9,12 @@ import './Product.css';
 
 const Product = ({ products }) => {
     const { img, name, price, description } = products;
+
+    //  handle buy here 
+    const handleBuy = () => {
+
+    }
+
     return (
         <Grid item xs={12} sm={6} md={4}>
             <Card className="product-card" sx={{ maxWidth: 365, p: 2, boxShadow: 0 }}>
@@ -29,7 +35,7 @@ const Product = ({ products }) => {
                         Price: {price}$
                     </Typography>
 
-                    <Button sx={{ bgcolor: 'text.primary' }} size="small" variant="contained">Buy Now</Button>
+                    <Button onClick={handleBuy} sx={{ bgcolor: 'text.primary' }} size="small" variant="contained">Buy Now</Button>
                 </CardContent>
             </Card>
         </Grid>

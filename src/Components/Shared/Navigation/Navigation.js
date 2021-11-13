@@ -11,7 +11,7 @@ import Menu from '@mui/material/Menu';
 import logo from '../../../image/logo.png';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
-import { Button } from '@mui/material';
+import { Avatar, Button } from '@mui/material';
 
 const navStyle = {
     color: '#fff',
@@ -64,7 +64,7 @@ const Navigation = () => {
                     </Box>
                     <div>
                         {user.email ? <Box>
-                            <IconButton
+                            {!user.photoURL ? <IconButton
                                 size="large"
                                 aria-label="account of current user"
                                 aria-controls="menu-appbar"
@@ -73,7 +73,7 @@ const Navigation = () => {
                                 color="inherit"
                             >
                                 <AccountCircle />
-                            </IconButton>
+                            </IconButton> : <Avatar style={{ cursor: 'pointer' }} onClick={handleMenu} alt="Remy Sharp" src={user.photoURL} />}
                             <Menu
                                 id="menu-appbar"
                                 anchorEl={anchorEl}

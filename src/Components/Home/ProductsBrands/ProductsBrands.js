@@ -19,15 +19,15 @@ SwiperCore.use([Pagination]);
 const ProductsBrands = () => {
     return (
         <Container sx={{ my: 5 }}>
-            <Swiper slidesPerView={4} spaceBetween={30} pagination={{
+            <Swiper slidesPerView={3} spaceBetween={30} pagination={{
                 "clickable": true
             }} className="mySwiper">
-                <SwiperSlide className="slider"> <img src="https://i.ibb.co/gtmR27d/3d.webp" alt="" /> </SwiperSlide>
-                <SwiperSlide className="slider"> <img src="https://i.ibb.co/L0WBD2v/dji.webp" alt="" /> </SwiperSlide>
-                <SwiperSlide className="slider"> <img src="https://i.ibb.co/wL25cQ0/fly.webp" alt="" /> </SwiperSlide>
-                <SwiperSlide className="slider"> <img src="https://i.ibb.co/8BCRD42/one.webp" alt="" /> </SwiperSlide>
-                <SwiperSlide className="slider"> <img src="https://i.ibb.co/FzdRC98/photographer.webp" alt="" /> </SwiperSlide>
-                <SwiperSlide className="slider"> <img src="https://i.ibb.co/r5RRZQt/sky.webp" alt="" /> </SwiperSlide>
+                <SwiperSlide><img src="https://i.ibb.co/gtmR27d/3d.webp" alt="" /> </SwiperSlide>
+                <SwiperSlide><img src="https://i.ibb.co/L0WBD2v/dji.webp" alt="" /> </SwiperSlide>
+                <SwiperSlide><img src="https://i.ibb.co/wL25cQ0/fly.webp" alt="" /> </SwiperSlide>
+                <SwiperSlide><img src="https://i.ibb.co/8BCRD42/one.webp" alt="" /> </SwiperSlide>
+                <SwiperSlide><img src="https://i.ibb.co/FzdRC98/photographer.webp" alt="" /> </SwiperSlide>
+                <SwiperSlide><img src="https://i.ibb.co/r5RRZQt/sky.webp" alt="" /> </SwiperSlide>
             </Swiper>
         </Container>
     );

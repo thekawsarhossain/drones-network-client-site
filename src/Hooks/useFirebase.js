@@ -58,9 +58,11 @@ const useFirebase = () => {
 
     // getting loggedin user information here
     useEffect(() => {
+        setLoading(true);
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
+                setLoading(false);
             }
             else {
                 setUser({})

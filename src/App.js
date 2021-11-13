@@ -5,6 +5,8 @@ import Login from './Components/Authentication/Login/Login';
 import Signup from './Components/Authentication/Signup/Signup';
 import ExploreProducts from './Components/ExploreProducts/ExploreProducts';
 import AuthProvider from './Context/AuthProvider';
+import Dashboard from './Components/Dashboard/Dashboard';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
             <Route path="/login"><Login /></Route>
             <Route path="/signup"><Signup /></Route>
             <Route path="/explore-products"><ExploreProducts /></Route>
+            <PrivateRoute path="/dashboard"><Dashboard /></PrivateRoute>
           </Switch>
         </BrowserRouter>
       </AuthProvider>
