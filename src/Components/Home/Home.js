@@ -3,8 +3,8 @@ import Footer from '../Shared/Footer/Footer';
 import Navigation from '../Shared/Navigation/Navigation';
 import Banner from './Banner/Banner';
 import ProductsBrands from './ProductsBrands/ProductsBrands';
-import Products from '../../Components/Shared/Products/Products';
 import Reviews from './Reviews/Reviews';
+import Products from './Products/Products';
 
 const Home = () => {
 

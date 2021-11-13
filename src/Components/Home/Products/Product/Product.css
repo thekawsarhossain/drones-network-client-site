@@ -23,3 +23,22 @@
     transform: translateY(-12px);
     margin:0 4px;
 }
+
+.title-2:after{
+    content: '';
+    display: inline-block;
+    width: 10%;
+    border-bottom: 1px solid #212121;
+    margin: auto;
+    transform: translateY(-7px);
+    margin:0 4px;
+}
+.title-2:before{
+    content: '';
+    display: inline-block;
+    width: 10%;
+    border-bottom: 1px solid #212121;
+    margin: auto;
+    transform: translateY(-7px);
+    margin:0 4px;
+}

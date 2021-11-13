@@ -63,7 +63,7 @@ const reviews = [
 const Reviews = () => {
     return (
         <Box>
-            <Typography variant="h4" className="title" style={{ fontWeight: 'bold' }}>REVIEWS BY USERS</Typography>
+            <Typography variant="h4" className="title" style={{ fontWeight: 'bold' }}>REVIEW BY USERS</Typography>
             <Container sx={{ my: 6 }}>
                 <Swiper sx={{ pt: 3 }} effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'auto'} coverflowEffect={{
                     "rotate": 50,
