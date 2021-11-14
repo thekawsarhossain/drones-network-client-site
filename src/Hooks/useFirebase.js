@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile, signOut } from "firebase/auth";
 import initializeAuthentication from '../Components/Authentication/Firebase/firebase.init';
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
 //firebase initialization here 
 initializeAuthentication();
@@ -64,6 +64,7 @@ const useFirebase = () => {
                 setUser(result.user);
                 setError('')
                 saveUser(result.user.email, result.user.displayName, 'PUT');
+                history.push('/');
             })
             .catch(error => setError(error.message))
             .finally(() => setLoading(false))

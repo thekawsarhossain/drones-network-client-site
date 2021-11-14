@@ -14,6 +14,7 @@ const MakeAdmin = () => {
     }
 
     const handleMaking = () => {
+        const user = { email }
         fetch('http://localhost:5000/user/admin', {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
