@@ -27,6 +27,15 @@ import Profile from './Profile/Profile';
 import MyOrders from './MyOrders/MyOrders';
 import Payment from './Payment/Payment';
 import GiveReview from './GiveReview/GiveReview';
+import ManageProducts from './ManageProducts/ManageProducts';
+import AddProducts from './AddProducts/AddProducts';
+import AddIcon from '@mui/icons-material/Add';
+import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
+import ManageOrders from './ManageOrders/ManageOrders';
+import MakeAdmin from './MakeAdmin/MakeAdmin';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import AdminRoute from '../AdminRoute/AdminRoute';
 
 
 const drawerWidth = 240;
@@ -110,7 +119,7 @@ const Dashboard = () => {
     };
 
     // getting user data from context api here 
-    const { user, logoutUser } = useAuth();
+    const { user, logoutUser, admin } = useAuth();
 
     // nesting router hook here 
     let { path, url } = useRouteMatch();
@@ -187,6 +196,45 @@ const Dashboard = () => {
                     </Link>
                 </List>
                 <Divider />
+                {admin && <Box>
+                    <List>
+                        <Link to={`${url}/add-products`}>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    {<AddIcon />}
+                                </ListItemIcon>
+                                <ListItemText primary="Add Products" />
+                            </ListItem>
+                        </Link>
+                        <Link to={`${url}/make-admin`}>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    {<SupervisorAccountIcon />}
+                                </ListItemIcon>
+                                <ListItemText primary="Make Admin" />
+                            </ListItem>
+                        </Link>
+                    </List>
+                    <Link to={`${url}/manage-orders`}>
+                        <ListItem button>
+                            <ListItemIcon>
+                                {<FileCopyIcon />}
+                            </ListItemIcon>
+                            <ListItemText primary="Manage orders" />
+                        </ListItem>
+                    </Link>
+                    <List>
+                        <Link to={`${url}/manage-products`}>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    {<AutoAwesomeMotionIcon />}
+                                </ListItemIcon>
+                                <ListItemText primary="Manage Products" />
+                            </ListItem>
+                        </Link>
+                    </List>
+                </Box>}
+                <Divider />
                 <List>
                     <ListItem onClick={logoutUser} button>
                         <ListItemIcon>
@@ -216,6 +264,18 @@ const Dashboard = () => {
                     <Route path={`${path}/give-review`}>
                         <GiveReview />
                     </Route>
+                    <AdminRoute path={`${path}/add-products`}>
+                        <AddProducts />
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manage-products`}>
+                        <ManageProducts />
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manage-orders`}>
+                        <ManageOrders />
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/make-admin`}>
+                        <MakeAdmin />
+                    </AdminRoute>
                 </Switch>
             </Box>
         </Box>

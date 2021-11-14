@@ -13,10 +13,8 @@ const MyOrder = ({ orderData }) => {
     const handleOrder = id => {
         const proceed = window.confirm('Are you sure you want DELETE');
         if (proceed) {
-
-
             fetch(`https://safe-tundra-13022.herokuapp.com/order/${id}`, {
-                method: 'DELETE',
+                methods: 'DELETE',
                 haeder: { 'content-type': 'application/json' }
             })
                 .then(response => response.json())

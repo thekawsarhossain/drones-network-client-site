@@ -32,7 +32,8 @@ const Product = ({ products }) => {
                         {name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {description.split(' ').slice(0, 20).join(' ')}
+                        {description}
+                        {/* description.length > 50 ? description.split(' ').slice(0, 20).join(' ') : */}
                     </Typography>
                     <Typography sx={{ py: 1 }} variant="subtitle1" >
                         Price: {price}$

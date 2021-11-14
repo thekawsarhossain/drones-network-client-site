@@ -1,33 +1,32 @@
-import { Button, Container, Rating, TextField, Typography } from '@mui/material';
+import { Button, Container, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import swal from 'sweetalert';
 import useAuth from '../../../Hooks/useAuth';
 
-const GiveReview = () => {
+const AddProducts = () => {
 
     const { user } = useAuth();
 
-    // initial information
-    const initialInformation = { name: user.displayName, img: user.photoURL, comment: '' }
-    const [review, setReview] = useState(initialInformation);
+    const [product, setProduct] = useState({})
 
     const handleBlur = event => {
         const field = event.target.name;
         const value = event.target.value;
-        const newReview = { ...review }
-        newReview[field] = value;
-        setReview(newReview)
+        const newProduct = { ...product }
+        newProduct[field] = value;
+        setProduct(newProduct)
     }
 
-    console.log(review)
-
-    // handle review function
-    const handleReview = () => {
-        fetch('https://safe-tundra-13022.herokuapp.com/reviews', {
+    const handleAdding = () => {
+        const productInfo = {
+            ...product,
+            addby: user.displayName
+        }
+        fetch('http://localhost:5000/drones', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(review)
+            body: JSON.stringify(productInfo)
         })
             .then(response => response.json())
             .then(result => {
@@ -47,16 +46,16 @@ const GiveReview = () => {
                 xs: '100%',
                 sm: '100%',
                 md: '100%',
-                lg: '50%',
+                lg: '70%',
             }, mx: 'auto'
         }}>
-            <Typography variant="h4" className="title" style={{ fontWeight: 'bold' }}>Give Your Review</Typography>
+            <Typography variant="h4" className="title" style={{ fontWeight: 'bold' }}>Add a product </Typography>
             <Box className="product-card " sx={{ p: 3, m: 2 }}>
+
                 <TextField
                     sx={{ width: '95%', my: 1 }}
-                    defaultValue={user?.displayName}
                     id="outlined-basic"
-                    label="Name"
+                    label="product Name"
                     name="name"
                     variant="outlined"
                     onBlur={handleBlur}
@@ -64,30 +63,29 @@ const GiveReview = () => {
                 <TextField
                     sx={{ width: '95%', my: 1 }}
                     id="outlined-basic"
-                    defaultValue={user.photoURL}
-                    label="Image Link"
-                    name="photoURL"
+                    label="description"
+                    name="description"
                     variant="outlined"
                     onBlur={handleBlur}
                 />
                 <TextField
                     sx={{ width: '95%', my: 1 }}
                     id="outlined-basic"
-                    label="comment"
-                    name="comment"
+                    label="price"
+                    name="price"
                     variant="outlined"
                     onBlur={handleBlur}
                 />
-                <Box sx={{ width: '95%', my: 2, border: 1, margin: 'auto', p: 1 }}>
-                    <Rating
-                        name="rating"
-                        onChange={(event, newValue) => {
-                            review['rating'] = (newValue);
-                        }}
-                    />
-                </Box>
+                <TextField
+                    sx={{ width: '95%', my: 1 }}
+                    id="outlined-basic"
+                    label="Image Link"
+                    name="img"
+                    variant="outlined"
+                    onBlur={handleBlur}
+                />
                 <Button
-                    onClick={handleReview}
+                    onClick={handleAdding}
                     sx={{ width: '95%', my: 2, bgcolor: 'text.primary' }}
                     type="submit"
                     size="large"
@@ -99,4 +97,4 @@ const GiveReview = () => {
     );
 };
 
-export default GiveReview;
+export default AddProducts;

@@ -11,6 +11,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
     // auth here 
     const auth = getAuth();
@@ -20,6 +21,13 @@ const useFirebase = () => {
     // google auth provider 
     const googleProvider = new GoogleAuthProvider();
 
+    // user admin data loading 
+    useEffect(() => {
+        fetch(`http://localhost:5000/user/${user.email}`)
+            .then(response => response.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
     // new user registration with eamila and pass here 
     const registerUser = (email, password, name) => {
         createUserWithEmailAndPassword(auth, email, password, name)
@@ -27,6 +35,7 @@ const useFirebase = () => {
                 setUser(result.user)
                 updateUserName(name)
                 setError('');
+                saveUser(email, name, 'POST')
                 history.push('/');
             })
             .catch(error => setError(error.message))
@@ -54,6 +63,7 @@ const useFirebase = () => {
             .then(result => {
                 setUser(result.user);
                 setError('')
+                saveUser(result.user.email, result.user.displayName, 'PUT');
             })
             .catch(error => setError(error.message))
             .finally(() => setLoading(false))
@@ -83,6 +93,16 @@ const useFirebase = () => {
         });
     }
 
+    // save user 
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName }
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(user)
+        })
+    }
+
     // logout user here 
     const logoutUser = () => {
         signOut(auth)
@@ -95,6 +115,7 @@ const useFirebase = () => {
     // returning necessary function here 
     return {
         user,
+        admin,
         error,
         setError,
         loading,
