@@ -15,7 +15,7 @@ const MyOrder = ({ orderData }) => {
         if (proceed) {
 
 
-            fetch(`http://localhost:5000/order/${id}`, {
+            fetch(`https://safe-tundra-13022.herokuapp.com/order/${id}`, {
                 method: 'DELETE',
                 haeder: { 'content-type': 'application/json' }
             })

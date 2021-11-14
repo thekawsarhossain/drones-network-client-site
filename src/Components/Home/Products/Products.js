@@ -12,7 +12,7 @@ const Products = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost:5000/drones-home')
+        fetch('https://safe-tundra-13022.herokuapp.com/drones-home')
             .then(response => response.json())
             .then(data => setProducts(data))
             .finally(() => setLoading(false))

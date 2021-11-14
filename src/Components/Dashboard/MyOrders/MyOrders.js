@@ -17,7 +17,7 @@ const MyOrders = () => {
 
     const [orderData, setOrderData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${user.email}`)
+        fetch(`https://safe-tundra-13022.herokuapp.com/orders/${user.email}`)
             .then(response => response.json())
             .then(data => setOrderData(data))
     }, [user.email])

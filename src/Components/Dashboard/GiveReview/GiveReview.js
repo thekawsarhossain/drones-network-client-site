@@ -11,7 +11,7 @@ const GiveReview = () => {
     // initial information
     const initialInformation = { name: user.displayName, img: user.photoURL }
     const [review, setReview] = useState(initialInformation);
-
+    console.log(review);
     const handleBlur = event => {
         const field = event.target.name;
         const value = event.target.value;
@@ -22,7 +22,7 @@ const GiveReview = () => {
 
     // handle review function
     const handleReview = () => {
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://safe-tundra-13022.herokuapp.com/reviews', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(review)
@@ -71,8 +71,8 @@ const GiveReview = () => {
                 <TextField
                     sx={{ width: '95%', my: 1 }}
                     id="outlined-basic"
-                    label="comment"
-                    name="comment"
+                    label="text"
+                    name="text"
                     variant="outlined"
                     onBlur={handleBlur}
                 />

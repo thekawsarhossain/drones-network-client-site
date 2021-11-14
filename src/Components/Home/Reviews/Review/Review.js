@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
+import noImage from '../../../../image/noImage.png';
 
 const Review = ({ reviews }) => {
     const { img, name, comment, rating } = reviews;
@@ -13,7 +14,7 @@ const Review = ({ reviews }) => {
             <CardMedia
                 component="img"
                 height="80"
-                image={img}
+                image={img ? img : noImage}
                 alt="green iguana"
             />
             <CardContent>

@@ -27,7 +27,7 @@ const BuyProduct = () => {
 
     // getting the match product using id here 
     useEffect(() => {
-        fetch(`http://localhost:5000/drones/${id}`)
+        fetch(`https://safe-tundra-13022.herokuapp.com/drones/${id}`)
             .then(response => response.json())
             .then(data => setProduct(data))
     }, [id]);
@@ -44,7 +44,7 @@ const BuyProduct = () => {
             date: new Date().toLocaleDateString()
         }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://safe-tundra-13022.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
