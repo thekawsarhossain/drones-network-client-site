@@ -22,7 +22,7 @@ const Profile = () => {
                     xs: '100%',
                     sm: '100%',
                     md: '100%',
-                    lg: '70%',
+                    lg: '75%',
                 }
             }}>
                 <CardMedia

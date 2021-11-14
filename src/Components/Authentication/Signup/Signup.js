@@ -4,11 +4,12 @@ import React, { useState } from 'react';
 import logo from '../../../image/logo-2.png';
 import useAuth from '../../../Hooks/useAuth';
 import { NavLink } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const Signup = () => {
 
     // getting data from context here 
-    const { error, setError, registerUser, googleSignIn } = useAuth();
+    const { error, setError, registerUser, googleSignIn, user } = useAuth();
 
     // user state 
     const [userData, setUserData] = useState({});
@@ -27,6 +28,13 @@ const Signup = () => {
             setError("You'r password didn't match !");
         }
         registerUser(userData.email, userData.password, userData.name);
+        if (user?.email) {
+            swal({
+                title: "Good job!",
+                text: "Registration successfully!",
+                icon: "success",
+            });
+        }
     }
 
     return (
@@ -51,6 +59,7 @@ const Signup = () => {
                         name="name"
                         variant="outlined"
                         onBlur={handleBlur}
+                        required
                     />
                     <TextField
                         sx={{ width: '80%', my: 1 }}
@@ -60,6 +69,7 @@ const Signup = () => {
                         type="email"
                         variant="outlined"
                         onBlur={handleBlur}
+                        required
                     />
                     <TextField
                         sx={{ width: '80%', my: 1 }}
@@ -69,6 +79,7 @@ const Signup = () => {
                         type="password"
                         variant="outlined"
                         onBlur={handleBlur}
+                        required
                     />
                     <TextField
                         sx={{ width: '80%', my: 1 }}
@@ -78,6 +89,7 @@ const Signup = () => {
                         type="password"
                         variant="outlined"
                         onBlur={handleBlur}
+                        required
                     /> <br />
 
                     <Button

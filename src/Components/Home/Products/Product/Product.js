@@ -15,7 +15,7 @@ const Product = ({ products }) => {
 
     //  handle buy here 
     const handleBuy = id => {
-        history.push(`/product/:${id}`);
+        history.push(`/product/${id}`);
     }
 
     return (

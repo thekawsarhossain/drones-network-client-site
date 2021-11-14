@@ -21,7 +21,7 @@ function App() {
             <Route path="/login"><Login /></Route>
             <Route path="/signup"><Signup /></Route>
             <Route path="/explore-products"><ExploreProducts /></Route>
-            <Route path="/product/:id"><BuyProduct /></Route>
+            <PrivateRoute path="/product/:id"><BuyProduct /></PrivateRoute>
             <PrivateRoute path="/dashboard"><Dashboard /></PrivateRoute>
           </Switch>
         </BrowserRouter>

@@ -3,12 +3,12 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import logo from '../../../image/logo-2.png';
 import useAuth from '../../../Hooks/useAuth';
-import { useHistory, useLocation } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const Login = () => {
 
-    const { error, loginUser, googleSignIn } = useAuth();
+    const { error, loginUser, googleSignIn, user } = useAuth();
 
     //  to redirect
     // const histroy = useHistroy 
@@ -23,12 +23,19 @@ const Login = () => {
         setUserData(newUser)
     }
 
-    const location = useLocation();
     const history = useHistory();
+    const location = useLocation();
 
     // login function 
     const handleLogin = () => {
         loginUser(userData.email, userData.password, history, location);
+        if (user?.email) {
+            swal({
+                title: "Good job!",
+                text: "Loggedin successfully !",
+                icon: "success",
+            });
+        }
     }
 
 

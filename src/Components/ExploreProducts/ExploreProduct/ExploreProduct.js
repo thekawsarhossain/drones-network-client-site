@@ -5,9 +5,18 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useHistory } from 'react-router';
 
 const ExploreProduct = ({ products }) => {
-    const { img, name, price, description } = products;
+    const { img, name, price, description, _id } = products;
+
+    const history = useHistory();
+
+    //  handle buy here 
+    const handleBuy = id => {
+        history.push(`/product/${id}`);
+    }
+
     return (
         <Grid item xs={12} sm={6} md={4}>
             <Card className="product-card" sx={{ maxWidth: 365, p: 2, boxShadow: 0 }}>
@@ -28,7 +37,7 @@ const ExploreProduct = ({ products }) => {
                         Price: {price}$
                     </Typography>
 
-                    <Button sx={{ bgcolor: 'text.primary' }} size="small" variant="contained">Buy Now</Button>
+                    <Button onClick={() => handleBuy(_id)} sx={{ bgcolor: 'text.primary' }} size="small" variant="contained">Buy Now</Button>
                 </CardContent>
             </Card>
         </Grid>
