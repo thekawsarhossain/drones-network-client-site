@@ -41,7 +41,7 @@ const Reviews = () => {
                     "slideShadows": true
                 }} pagination={true} className="mySwiper">
                     {
-                        reviews.map(review => <SwiperSlide >{<Review reviews={review} />}</SwiperSlide>)
+                        reviews.map(review => <SwiperSlide key={review._id} >{<Review reviews={review} />}</SwiperSlide>)
                     }
                 </Swiper>
             </Container>

@@ -14,19 +14,21 @@ const MyOrder = ({ orderData }) => {
         const proceed = window.confirm('Are you sure you want DELETE');
         if (proceed) {
             fetch(`https://safe-tundra-13022.herokuapp.com/order/${id}`, {
-                methods: 'DELETE',
-                haeder: { 'content-type': 'application/json' }
+                method: 'DELETE',
+                haeders: { 'content-type': 'application/json' }
             })
                 .then(response => response.json())
                 .then(result => {
-                    swal({
-                        title: 'Order Deleted!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    })
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1200);
+                    if (result.deletedCount) {
+                        swal({
+                            title: 'Order Deleted!',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        })
+                    }
+                    // setTimeout(() => {
+                    //     window.location.reload();
+                    // }, 1200);
                 })
         }
     }

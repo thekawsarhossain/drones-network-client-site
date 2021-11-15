@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile, signOut } from "firebase/auth";
 import initializeAuthentication from '../Components/Authentication/Firebase/firebase.init';
-import { useHistory } from 'react-router';
 
 //firebase initialization here 
 initializeAuthentication();
@@ -12,44 +11,36 @@ const useFirebase = () => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
+    console.log(admin)
 
     // auth here 
     const auth = getAuth();
 
-    const history = useHistory();
-
     // google auth provider 
     const googleProvider = new GoogleAuthProvider();
 
-    // user admin data loading 
-    useEffect(() => {
-        fetch(`http://localhost:5000/user/${user.email}`)
-            .then(response => response.json())
-            .then(data => setAdmin(data.admin))
-    }, [user.email])
-
     // new user registration with eamila and pass here 
-    const registerUser = (email, password, name) => {
+    const registerUser = (email, password, name, history, location) => {
+        const url = location?.state?.from || '/dashboard';
         createUserWithEmailAndPassword(auth, email, password, name)
             .then(result => {
                 setUser(result.user)
                 updateUserName(name)
                 setError('');
+                history.replace(url);
                 saveUser(email, name, 'POST')
-                history.push('/');
             })
             .catch(error => setError(error.message))
     }
 
     // signin user with email and pass here 
-    const loginUser = (email, password, location, histroy) => {
-        const url = location?.state?.from || '/';
-        console.log(url)
+    const loginUser = (email, password, history, location) => {
+        const url = location?.state?.from || '/dashboard';
         setLoading(true)
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user)
-                histroy.replace(url);
+                history.replace(url);
                 setError('');
             })
             .catch(error => setError(error.message))
@@ -57,14 +48,15 @@ const useFirebase = () => {
     }
 
     // signin with google here 
-    const googleSignIn = () => {
+    const googleSignIn = (history, location) => {
         setLoading(true)
+        const url = location?.state?.from || '/dashboard';
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 setUser(result.user);
                 setError('')
+                history.replace(url);
                 saveUser(result.user.email, result.user.displayName, 'PUT');
-                history.push('/');
             })
             .catch(error => setError(error.message))
             .finally(() => setLoading(false))
@@ -97,12 +89,20 @@ const useFirebase = () => {
     // save user 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName }
-        fetch('http://localhost:5000/users', {
+        fetch('https://safe-tundra-13022.herokuapp.com/users', {
             method: method,
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user)
         })
     }
+
+    // user admin data loading 
+    useEffect(() => {
+        fetch(`https://safe-tundra-13022.herokuapp.com/user/${user.email}`)
+            .then(response => response.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
 
     // logout user here 
     const logoutUser = () => {

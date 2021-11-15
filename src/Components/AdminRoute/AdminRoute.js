@@ -4,15 +4,14 @@ import useAuth from '../../Hooks/useAuth';
 import spinner from '../../image/loading.gif';
 
 const AdminRoute = ({ children, ...rest }) => {
-    let { user, loading, admin } = useAuth();
+    let { user, admin } = useAuth();
 
-    if (loading) {
+    if (!admin) {
         return <img style={{ width: '10%', margin: ' 25px auto 0 auto' }} src={spinner} alt="" />
     }
 
     return (
         <div>
-            return (
             <Route
                 {...rest}
                 render={({ location }) =>

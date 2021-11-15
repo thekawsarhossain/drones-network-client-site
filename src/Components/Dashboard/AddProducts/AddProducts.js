@@ -23,7 +23,7 @@ const AddProducts = () => {
             ...product,
             addby: user.displayName
         }
-        fetch('http://localhost:5000/drones', {
+        fetch('https://safe-tundra-13022.herokuapp.com/drones', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(productInfo)

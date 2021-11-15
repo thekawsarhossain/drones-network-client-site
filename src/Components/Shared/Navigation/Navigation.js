@@ -55,12 +55,8 @@ const Navigation = () => {
                     </IconButton> */}
                     <NavLink to="/"><img src={logo} alt="" /></NavLink>
                     <Box sx={navStyle}>
-                        <NavLink activeStyle={{
-                            textDecoration: 'underline'
-                        }} to="/"><Typography variant="button " sx={{ flexGrow: 1, px: 2 }}>Home</Typography></NavLink>
-                        <NavLink activeStyle={{
-                            textDecoration: 'underline'
-                        }} to="/explore-products"><Typography variant="button " sx={{ flexGrow: 1, px: 2 }}>Explore Products</Typography></NavLink>
+                        <NavLink to="/"><Typography variant="button " style={{ textDecoration: 'none', color: '#fff' }} sx={{ flexGrow: 1, px: 2 }}>Home</Typography></NavLink>
+                        <NavLink to="/explore-products"><Typography variant="button " style={{ textDecoration: 'none', color: '#fff' }} sx={{ flexGrow: 1, px: 2 }}>Explore Products</Typography></NavLink>
                     </Box>
                     <div>
                         {user.email ? <Box>

@@ -12,7 +12,6 @@ const PrivateRoute = ({ children, ...rest }) => {
 
     return (
         <div>
-            return (
             <Route
                 {...rest}
                 render={({ location }) =>

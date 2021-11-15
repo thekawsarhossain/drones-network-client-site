@@ -153,7 +153,7 @@ const Dashboard = () => {
                     </IconButton>
                 </DrawerHeader>
                 <Divider />
-                <Link to={'/'}>
+                <Link style={{ textDecoration: "none", color: '#000' }} to={'/'}>
                     <ListItem button>
                         <ListItemIcon>
                             {<HomeIcon />}
@@ -162,7 +162,7 @@ const Dashboard = () => {
                     </ListItem>
                 </Link>
                 <List>
-                    <Link to={`${url}/profile`}>
+                    <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/profile`}>
                         <ListItem button>
                             <ListItemIcon>
                                 {<AccountBoxIcon />}
@@ -170,7 +170,7 @@ const Dashboard = () => {
                             <ListItemText primary="Profile" />
                         </ListItem>
                     </Link>
-                    <Link to={`${url}/my-orders`}>
+                    <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/my-orders`}>
                         <ListItem button>
                             <ListItemIcon>
                                 {<ShoppingCartIcon />}
@@ -178,7 +178,7 @@ const Dashboard = () => {
                             <ListItemText primary="My Orders" />
                         </ListItem>
                     </Link>
-                    <Link to={`${url}/payment`}>
+                    <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/payment`}>
                         <ListItem button>
                             <ListItemIcon>
                                 {<PaymentsIcon />}
@@ -186,7 +186,7 @@ const Dashboard = () => {
                             <ListItemText primary="Payment" />
                         </ListItem>
                     </Link>
-                    <Link to={`${url}/give-review`}>
+                    <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/give-review`}>
                         <ListItem button>
                             <ListItemIcon>
                                 {<ReviewsIcon />}
@@ -198,7 +198,7 @@ const Dashboard = () => {
                 <Divider />
                 {admin && <Box>
                     <List>
-                        <Link to={`${url}/add-products`}>
+                        <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/add-products`}>
                             <ListItem button>
                                 <ListItemIcon>
                                     {<AddIcon />}
@@ -206,7 +206,7 @@ const Dashboard = () => {
                                 <ListItemText primary="Add Products" />
                             </ListItem>
                         </Link>
-                        <Link to={`${url}/make-admin`}>
+                        <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/make-admin`}>
                             <ListItem button>
                                 <ListItemIcon>
                                     {<SupervisorAccountIcon />}
@@ -215,7 +215,7 @@ const Dashboard = () => {
                             </ListItem>
                         </Link>
                     </List>
-                    <Link to={`${url}/manage-orders`}>
+                    <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/manage-orders`}>
                         <ListItem button>
                             <ListItemIcon>
                                 {<FileCopyIcon />}
@@ -224,7 +224,7 @@ const Dashboard = () => {
                         </ListItem>
                     </Link>
                     <List>
-                        <Link to={`${url}/manage-products`}>
+                        <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/manage-products`}>
                             <ListItem button>
                                 <ListItemIcon>
                                     {<AutoAwesomeMotionIcon />}

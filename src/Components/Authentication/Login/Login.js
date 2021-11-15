@@ -3,16 +3,14 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import logo from '../../../image/logo-2.png';
 import useAuth from '../../../Hooks/useAuth';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router';
+import GoogleIcon from '@mui/icons-material/Google';
 import swal from 'sweetalert';
 
 const Login = () => {
 
     const { error, loginUser, googleSignIn, user } = useAuth();
-
-    //  to redirect
-    // const histroy = useHistroy 
-
     const [userData, setUserData] = useState({});
 
     const handleBlur = event => {
@@ -21,6 +19,7 @@ const Login = () => {
         const newUser = { ...userData }
         newUser[field] = value;
         setUserData(newUser)
+        event.target.value = '';
     }
 
     const history = useHistory();
@@ -36,6 +35,11 @@ const Login = () => {
                 icon: "success",
             });
         }
+    }
+
+    // handle google signup 
+    const handleGoogleSignIn = () => {
+        googleSignIn(history, location)
     }
 
 
@@ -89,15 +93,15 @@ const Login = () => {
                     <Typography variant="subtitle1" className="title-2"> OR </Typography>
 
                     <Button
-                        onClick={googleSignIn}
+                        onClick={() => handleGoogleSignIn(history, location)}
                         sx={{ my: 1, bgcolor: 'text.primary' }}
                         variant="contained">
-                        Google signin
+                        <GoogleIcon /> <Box sx={{ px: 2 }}> Google signin</Box>
                     </Button>
                     {error && <Alert severity="error">{error}</Alert>}
                 </Box>
             </Box>
-        </Container>
+        </Container >
     );
 };
 

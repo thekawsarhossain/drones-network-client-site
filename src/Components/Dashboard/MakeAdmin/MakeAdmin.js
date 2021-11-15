@@ -15,7 +15,7 @@ const MakeAdmin = () => {
 
     const handleMaking = () => {
         const user = { email }
-        fetch('http://localhost:5000/user/admin', {
+        fetch('https://safe-tundra-13022.herokuapp.com/user/admin', {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user)

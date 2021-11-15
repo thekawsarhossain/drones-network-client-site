@@ -7,13 +7,13 @@ import swal from 'sweetalert';
 
 const ManageProduct = ({ products }) => {
 
-    const { name, img, price, _id } = products;
+    const { name, img, price, _id, addby } = products;
 
     const handleProduct = id => {
         const procced = window.confirm('Are you sure you want DELETE ?')
 
         if (procced) {
-            fetch(`http://localhost:5000/drone/${id}`, {
+            fetch(`https://safe-tundra-13022.herokuapp.com/drone/${id}`, {
                 method: 'DELETE',
                 header: { 'content-type': 'application/json' }
             })
@@ -39,6 +39,7 @@ const ManageProduct = ({ products }) => {
                 <TableCell style={{ width: '25%' }} align="left"> <img style={{ width: '50%' }} src={img} alt="" /> </TableCell>
                 <TableCell align="left">{name}</TableCell>
                 <TableCell align="left">{price}</TableCell>
+                <TableCell align="left">{addby}</TableCell>
                 <TableCell align="left"> <Button sx={{ color: 'error.main', bgcolor: 'text.primary' }} onClick={() => handleProduct(_id)}><DeleteIcon /> </Button> </TableCell>
             </TableRow >
         </>

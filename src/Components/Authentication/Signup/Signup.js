@@ -4,9 +4,14 @@ import React, { useState } from 'react';
 import logo from '../../../image/logo-2.png';
 import useAuth from '../../../Hooks/useAuth';
 import { NavLink } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router';
+import GoogleIcon from '@mui/icons-material/Google';
 import swal from 'sweetalert';
 
 const Signup = () => {
+
+    const history = useHistory();
+    const location = useLocation();
 
     // getting data from context here 
     const { error, setError, registerUser, googleSignIn, user } = useAuth();
@@ -27,7 +32,7 @@ const Signup = () => {
         if (userData.password !== userData.password2) {
             setError("You'r password didn't match !");
         }
-        registerUser(userData.email, userData.password, userData.name);
+        registerUser(userData.email, userData.password, userData.name, history, location);
         if (user?.email) {
             swal({
                 title: "Good job!",
@@ -35,6 +40,11 @@ const Signup = () => {
                 icon: "success",
             });
         }
+    }
+
+    // handle google signup 
+    const handleGoogleSignIn = () => {
+        googleSignIn(history, location)
     }
 
     return (
@@ -108,10 +118,10 @@ const Signup = () => {
                     <Typography variant="subtitle1" className="title-2"> OR </Typography>
 
                     <Button
-                        onClick={googleSignIn}
+                        onClick={() => handleGoogleSignIn(history, location)}
                         sx={{ my: 1, bgcolor: 'text.primary' }}
                         variant="contained">
-                        Google signin
+                        <GoogleIcon /> <Box sx={{ px: 2 }}> Google signin</Box>
                     </Button>
                     {error && <Alert severity="error">{error}</Alert>}
                 </Box>

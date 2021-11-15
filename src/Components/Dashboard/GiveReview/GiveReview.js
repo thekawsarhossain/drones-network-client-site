@@ -20,7 +20,6 @@ const GiveReview = () => {
         setReview(newReview)
     }
 
-    console.log(review)
 
     // handle review function
     const handleReview = () => {
