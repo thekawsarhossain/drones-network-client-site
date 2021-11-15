@@ -5,6 +5,7 @@ import spinner from '../../image/loading.gif';
 
 const PrivateRoute = ({ children, ...rest }) => {
     let { user, loading } = useAuth();
+    console.log(loading)
 
     if (loading) {
         return <img style={{ width: '10%', margin: ' 25px auto 0 auto' }} src={spinner} alt="" />

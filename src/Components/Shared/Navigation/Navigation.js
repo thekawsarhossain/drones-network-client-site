@@ -12,6 +12,7 @@ import logo from '../../../image/logo.png';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import { Avatar, Button } from '@mui/material';
+import './Navigation.css';
 
 const navStyle = {
     color: '#fff',

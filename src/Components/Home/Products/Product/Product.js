@@ -7,16 +7,17 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import './Product.css';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Product = ({ products }) => {
     const { img, name, price, description, _id } = products;
 
-    const history = useHistory();
+    // const history = useHistory();
 
-    //  handle buy here 
-    const handleBuy = id => {
-        history.push(`/product/${id}`);
-    }
+    // //  handle buy here 
+    // const handleBuy = id => {
+    //     history.push(`/product/${id}`);
+    // }
 
     return (
         <Grid item xs={12} sm={6} md={4}>
@@ -39,10 +40,10 @@ const Product = ({ products }) => {
                         Price: {price}$
                     </Typography>
 
-                    <Button onClick={() => handleBuy(_id)} sx={{ bgcolor: 'text.primary' }} size="small" variant="contained">Buy Now</Button>
+                    <Link to={`/product/${_id}`}> <Button sx={{ bgcolor: 'text.primary' }} size="small" variant="contained">Buy Now</Button> </Link>
                 </CardContent>
             </Card>
-        </Grid>
+        </Grid >
     );
 };
 
