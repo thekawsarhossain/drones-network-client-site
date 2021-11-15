@@ -20,7 +20,6 @@ const GiveReview = () => {
         setReview(newReview)
     }
 
-
     // handle review function
     const handleReview = () => {
         fetch('https://safe-tundra-13022.herokuapp.com/reviews', {

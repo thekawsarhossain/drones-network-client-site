@@ -53,7 +53,7 @@ const Navigation = () => {
                     >
                         <MenuIcon />
                     </IconButton> */}
-                    <NavLink to="/"><img src={logo} alt="" /></NavLink>
+                    <NavLink to="/"><img className="logo-img" src={logo} alt="" /></NavLink>
                     <Box sx={navStyle}>
                         <NavLink to="/"><Typography variant="button " style={{ textDecoration: 'none', color: '#fff' }} sx={{ flexGrow: 1, px: 2 }}>Home</Typography></NavLink>
                         <NavLink to="/explore-products"><Typography variant="button " style={{ textDecoration: 'none', color: '#fff' }} sx={{ flexGrow: 1, px: 2 }}>Explore Products</Typography></NavLink>
