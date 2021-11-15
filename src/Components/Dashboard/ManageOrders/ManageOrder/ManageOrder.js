@@ -28,6 +28,9 @@ const ManageOrder = ({ orders }) => {
                             confirmButtonText: 'Ok'
                         })
                     }
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1200);
                 })
         }
     }
@@ -47,6 +50,9 @@ const ManageOrder = ({ orders }) => {
                         confirmButtonText: 'Ok'
                     })
                 }
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1200);
             })
     }
 

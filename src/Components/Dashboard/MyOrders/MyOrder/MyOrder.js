@@ -26,9 +26,9 @@ const MyOrder = ({ orderData }) => {
                             confirmButtonText: 'Ok'
                         })
                     }
-                    // setTimeout(() => {
-                    //     window.location.reload();
-                    // }, 1200);
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1200);
                 })
         }
     }
