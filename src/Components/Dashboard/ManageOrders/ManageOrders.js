@@ -8,15 +8,21 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import ManageOrder from './ManageOrder/ManageOrder';
+import spinner from '../../../image/loading.gif';
 
 const ManageOrders = () => {
+
+    // loading state here 
+    const [loading, setLoading] = useState(true);
 
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
+        setLoading(true)
         fetch('https://safe-tundra-13022.herokuapp.com/orders')
             .then(response => response.json())
             .then(data => setOrders(data))
+            .finally(() => setLoading(false))
     }, [])
 
     return (
@@ -37,10 +43,11 @@ const ManageOrders = () => {
                     </TableHead>
                     <TableBody>
                         {
-                            orders.map(order => <ManageOrder
-                                key={order._id}
-                                orders={order}
-                            />)
+                            loading ? <img style={{ width: '12%', margin: ' 25px auto' }} src={spinner} alt="" /> :
+                                orders.map(order => <ManageOrder
+                                    key={order._id}
+                                    orders={order}
+                                />)
                         }
                     </TableBody>
                 </Table>

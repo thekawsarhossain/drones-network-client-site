@@ -4,10 +4,15 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import { Button } from '@mui/material';
 import swal from 'sweetalert';
+import { useHistory } from 'react-router-dom'
+
+const paymentStatus = false
 
 const MyOrder = ({ orderData }) => {
     const { name, number, address, productPrice, productName, date, status, _id } = orderData;
-    console.log(orderData)
+
+    // react router hook
+    const history = useHistory();
 
     //handle order to delete oreder 
     const handleOrder = id => {
@@ -43,8 +48,16 @@ const MyOrder = ({ orderData }) => {
                 <TableCell align="left">{productPrice}$</TableCell>
                 <TableCell align="left">{date}</TableCell>
                 <TableCell align="left">{status}</TableCell>
-                <TableCell align="left"><Button onClick={() => handleOrder(_id)} sx={{ color: 'error.main' }}><DeleteIcon /> </Button></TableCell>
-            </TableRow> : <h2>You have no orders</h2>}
+                <TableCell align="left">
+                    <Button onClick={() => handleOrder(_id)} sx={{ color: 'error.main' }}><DeleteIcon /> </Button>
+                    {paymentStatus ? <Button onClick={() => swal({
+                        title: 'You already paid!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })}>Paid</Button> : <Button onClick={() => history.push(`/dashboard/payment/${_id}`, { productName: productName, productPrice: productPrice })} sx={{ color: 'error.main' }}>Pay</Button>}
+                </TableCell>
+            </TableRow> : <h2>You have no orders</h2>
+            }
 
         </>
     );

@@ -178,14 +178,14 @@ const Dashboard = () => {
                             <ListItemText primary="My Orders" />
                         </ListItem>
                     </Link>
-                    <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/payment`}>
+                    {/* <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/payment`}>
                         <ListItem button>
                             <ListItemIcon>
                                 {<PaymentsIcon />}
                             </ListItemIcon>
                             <ListItemText primary="Payment" />
                         </ListItem>
-                    </Link>
+                    </Link> */}
                     <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/give-review`}>
                         <ListItem button>
                             <ListItemIcon>
@@ -258,7 +258,7 @@ const Dashboard = () => {
                     <Route path={`${path}/my-orders`}>
                         <MyOrders />
                     </Route>
-                    <Route path={`${path}/payment`}>
+                    <Route path={`${path}/payment/:orderId`}>
                         <Payment />
                     </Route>
                     <Route path={`${path}/give-review`}>

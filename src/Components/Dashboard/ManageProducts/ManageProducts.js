@@ -8,15 +8,21 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import spinner from '../../../image/loading.gif';
 
 const ManageProducts = () => {
+
+    // loading states here 
+    const [loading, setLoading] = useState(true)
 
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
+        setLoading(true)
         fetch('https://safe-tundra-13022.herokuapp.com/drones')
             .then(response => response.json())
             .then(data => setProducts(data))
+            .finally(() => setLoading(false))
     }, [])
 
     return (
@@ -35,10 +41,11 @@ const ManageProducts = () => {
                     </TableHead>
                     <TableBody>
                         {
-                            products.map(product => <ManageProduct
-                                key={product._id}
-                                products={product}
-                            />)
+                            loading ? <img style={{ width: '12%', margin: ' 25px auto' }} src={spinner} alt="" /> :
+                                products.map(product => <ManageProduct
+                                    key={product._id}
+                                    products={product}
+                                />)
                         }
                     </TableBody>
                 </Table>
