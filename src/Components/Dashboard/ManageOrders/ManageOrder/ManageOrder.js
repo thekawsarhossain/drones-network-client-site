@@ -1,6 +1,5 @@
 import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
-import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';

@@ -1,11 +1,11 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import swal from 'sweetalert';
-import useAuth from '../../../Hooks/useAuth';
+// import useAuth from '../../../Hooks/useAuth';
 
 const MakeAdmin = () => {
 
-    const { user } = useAuth();
+    // const { user } = useAuth();
 
     const [email, setEmail] = useState();
 
@@ -31,8 +31,6 @@ const MakeAdmin = () => {
                 }
             })
     }
-
-    console.log(email)
 
     return (
         <Container className="parent" sx={{

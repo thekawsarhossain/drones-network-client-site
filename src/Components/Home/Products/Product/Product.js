@@ -6,18 +6,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import './Product.css';
-import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 
 const Product = ({ products }) => {
     const { img, name, price, description, _id } = products;
-
-    // const history = useHistory();
-
-    // //  handle buy here 
-    // const handleBuy = id => {
-    //     history.push(`/product/${id}`);
-    // }
 
     return (
         <Grid item xs={12} sm={6} md={4}>

@@ -6,10 +6,9 @@ import { Button } from '@mui/material';
 import swal from 'sweetalert';
 import { useHistory } from 'react-router-dom'
 
-const paymentStatus = false
 
 const MyOrder = ({ orderData }) => {
-    const { name, number, address, productPrice, productName, date, status, _id } = orderData;
+    const { name, number, address, productPrice, productName, date, status, _id, payment } = orderData;
 
     // react router hook
     const history = useHistory();
@@ -50,11 +49,11 @@ const MyOrder = ({ orderData }) => {
                 <TableCell align="left">{status}</TableCell>
                 <TableCell align="left">
                     <Button onClick={() => handleOrder(_id)} sx={{ color: 'error.main' }}><DeleteIcon /> </Button>
-                    {paymentStatus ? <Button onClick={() => swal({
+                    {payment ? <Button onClick={() => swal({
                         title: 'You already paid!',
                         icon: 'success',
                         confirmButtonText: 'Ok'
-                    })}>Paid</Button> : <Button onClick={() => history.push(`/dashboard/payment/${_id}`, { productName: productName, productPrice: productPrice })} sx={{ color: 'error.main' }}>Pay</Button>}
+                    })}>Paid</Button> : <Button onClick={() => history.push(`/dashboard/payment/${_id}`, { productName: productName, productPrice: productPrice, id: _id })} sx={{ color: 'error.main' }}>Pay</Button>}
                 </TableCell>
             </TableRow> : <h2>You have no orders</h2>
             }

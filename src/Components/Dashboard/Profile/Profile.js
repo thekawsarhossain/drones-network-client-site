@@ -7,7 +7,6 @@ const Profile = () => {
 
     // getting user info
     const { user } = useAuth();
-    console.log(user)
 
     return (
         <Container sx={{

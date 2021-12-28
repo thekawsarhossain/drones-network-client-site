@@ -1,7 +1,6 @@
 import { Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-import human from '../../../image/another.jpg';
 import { Box } from '@mui/system';
 import Review from './Review/Review';
 
