@@ -8,7 +8,7 @@ const CheckoutForm = ({ price, id }) => {
 
     const [clientScrect, setClientScrect] = useState('');
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://safe-tundra-13022.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ price })
@@ -83,7 +83,7 @@ const CheckoutForm = ({ price, id }) => {
                 icon: 'success',
                 confirmButtonText: 'Ok'
             })
-            const url = `http://localhost:5000/order-payment/${id}`
+            const url = `https://safe-tundra-13022.herokuapp.com/order-payment/${id}`
             fetch(url, {
                 method: 'PUT',
                 headers: { 'content-type': 'application/json' },
