@@ -37,6 +37,7 @@ const ManageOrders = () => {
                             <TableCell>Address</TableCell>
                             <TableCell>Number</TableCell>
                             <TableCell>Status</TableCell>
+                            <TableCell>Payment</TableCell>
                             <TableCell>Date</TableCell>
                             <TableCell align="center">Action</TableCell>
                         </TableRow>

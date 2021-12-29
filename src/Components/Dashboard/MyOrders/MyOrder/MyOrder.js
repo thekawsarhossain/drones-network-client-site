@@ -53,7 +53,7 @@ const MyOrder = ({ orderData }) => {
                         title: 'You already paid!',
                         icon: 'success',
                         confirmButtonText: 'Ok'
-                    })}>Paid</Button> : <Button onClick={() => history.push(`/dashboard/payment/${_id}`, { productName: productName, productPrice: productPrice, id: _id })} sx={{ color: 'error.main' }}>Pay</Button>}
+                    })}>Paid</Button> : <Button onClick={() => history.push(`/dashboard/payment/${_id}`, { productName: productName, productPrice: productPrice })} sx={{ color: 'error.main' }}>Pay</Button>}
                 </TableCell>
             </TableRow> : <h2>You have no orders</h2>
             }

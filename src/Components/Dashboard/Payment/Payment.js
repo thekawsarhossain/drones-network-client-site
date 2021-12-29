@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import CheckoutForm from './CheckoutForm';
 
 // publishable key of stripe here 
@@ -10,11 +10,12 @@ const stripePromise = loadStripe('pk_test_51KBf3nLtzMak2uXHOzyhMxTYmWczV8bRpmGrR
 
 const Payment = () => {
 
+    const { Id } = useParams();
+
     // recive data using react router location hook here 
     const location = useLocation();
     const productName = location.state.productName;
     const productPrice = location.state.productPrice;
-    const id = location.state.id;
 
     return (
         <Box>
@@ -28,7 +29,7 @@ const Payment = () => {
 
                 {/* stripe elements here  */}
                 {productPrice && <Elements stripe={stripePromise}>
-                    <CheckoutForm price={productPrice} id={id} />
+                    <CheckoutForm price={productPrice} id={Id} />
                 </Elements>}
             </Box>
         </Box>

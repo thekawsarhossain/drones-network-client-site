@@ -8,7 +8,7 @@ import swal from 'sweetalert';
 
 const ManageOrder = ({ orders }) => {
 
-    const { productName, name, address, number, status, date, _id } = orders;
+    const { productName, name, address, number, status, date, _id, payment } = orders;
 
     // handle delete here 
     const handleDelete = id => {
@@ -63,6 +63,7 @@ const ManageOrder = ({ orders }) => {
                 <TableCell align="left">{address}</TableCell>
                 <TableCell align="left">{number}</TableCell>
                 <TableCell align="left">{status}</TableCell>
+                <TableCell align="left">{payment ? payment : 'unpaid'}</TableCell>
                 <TableCell align="left">{date}</TableCell>
                 <TableCell align="center"> <Button onClick={() => handleDelete(_id)} sx={{ color: 'error.main', bgcolor: 'text.primary', mx: 1 }} ><DeleteIcon /> </Button>
                     {status === 'shipped' ? '' : <Button onClick={() => handleStatus(_id)} sx={{ color: 'error.main', bgcolor: 'text.primary' }} ><BookmarkAddIcon /> </Button>}

@@ -50,14 +50,10 @@ const CheckoutForm = ({ price, id }) => {
                 icon: 'error',
                 confirmButtonText: 'Ok'
             })
+            setProcessing(false)
         }
         else {
             console.log(paymentMethod)
-            swal({
-                title: 'You payment is successfull',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-            })
         }
 
         // confirm payment here || payment intent here 
@@ -78,6 +74,7 @@ const CheckoutForm = ({ price, id }) => {
                 icon: 'error',
                 confirmButtonText: 'Ok'
             })
+            setProcessing(false)
         }
         else {
             console.log('this is paymentIntent', paymentIntent)
@@ -86,14 +83,13 @@ const CheckoutForm = ({ price, id }) => {
                 icon: 'success',
                 confirmButtonText: 'Ok'
             })
-            const url = `http://localhost:5000/order/${id}`
+            const url = `http://localhost:5000/order-payment/${id}`
             fetch(url, {
                 method: 'PUT',
                 headers: { 'content-type': 'application/json' },
-                body: JSON.stringify('Paid')
             })
-                .then(response => response.json)
-                .then(data => console.log('the data is ', data))
+                .then(response => response.json())
+                .then(data => console.log(data))
             setProcessing(false)
         }
 

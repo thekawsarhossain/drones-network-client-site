@@ -2,12 +2,13 @@ import React from 'react';
 import { Redirect, Route } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
 import spinner from '../../image/loading.gif';
+import { Box } from '@mui/material';
 
 const PrivateRoute = ({ children, ...rest }) => {
     let { user, loading } = useAuth();
 
     if (loading) {
-        return <img style={{ width: '10%', margin: ' 25px auto 0 auto' }} src={spinner} alt="" />
+        return <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><img style={{ width: '10%' }} src={spinner} alt="" /> </Box>
     }
 
     return (

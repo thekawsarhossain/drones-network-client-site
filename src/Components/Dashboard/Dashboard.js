@@ -258,7 +258,7 @@ const Dashboard = () => {
                     <Route path={`${path}/my-orders`}>
                         <MyOrders />
                     </Route>
-                    <Route path={`${path}/payment/:orderId`}>
+                    <Route path={`${path}/payment/:Id`}>
                         <Payment />
                     </Route>
                     <Route path={`${path}/give-review`}>

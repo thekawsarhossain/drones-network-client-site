@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import React from 'react';
 import { Redirect, Route } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
@@ -7,7 +8,7 @@ const AdminRoute = ({ children, ...rest }) => {
     let { user, admin } = useAuth();
 
     if (!admin) {
-        return <img style={{ width: '10%', margin: ' 25px auto 0 auto' }} src={spinner} alt="" />
+        return <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><img style={{ width: '10%' }} src={spinner} alt="" /> </Box>
     }
 
     return (
