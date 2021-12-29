@@ -85,7 +85,7 @@ const Navigation = () => {
                                 open={Boolean(anchorEl)}
                                 onClose={handleClose}
                             >
-                                <MenuItem >{user.displayName}</MenuItem>
+                                <MenuItem onClick={() => history.push('/dashboard/profile')}>{user.displayName}</MenuItem>
                                 <MenuItem onClick={handleDashboard}>Dashboard</MenuItem>
                                 <MenuItem onClick={logoutUser}>Logout</MenuItem>
                             </Menu>
