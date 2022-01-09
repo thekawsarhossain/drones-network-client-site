@@ -2,7 +2,6 @@ import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
@@ -55,10 +54,10 @@ const Navigation = () => {
                     </IconButton> */}
                     <NavLink to="/"><img className="logo-img" src={logo} alt="" /></NavLink>
                     <Box sx={navStyle}>
-                        <NavLink to="/"><Typography variant="button " style={{ textDecoration: 'none', color: '#fff' }} sx={{ flexGrow: 1, px: 2 }}>Home</Typography></NavLink>
-                        <NavLink to="/explore-products"><Typography variant="button " style={{ textDecoration: 'none', color: '#fff' }} sx={{ flexGrow: 1, px: 2 }}>Explore Products</Typography></NavLink>
+                        <Button sx={{ mx: 1, color: '#FFF' }} onClick={() => history.push('/')}>Home</Button>
+                        <Button sx={{ mx: 1, color: '#FFF' }} onClick={() => history.push('/explore-products')}>Explore-Products</Button>
                     </Box>
-                    <div>
+                    <Box>
                         {user.email ? <Box>
                             {!user.photoURL ? <IconButton
                                 size="large"
@@ -89,8 +88,8 @@ const Navigation = () => {
                                 <MenuItem onClick={handleDashboard}>Dashboard</MenuItem>
                                 <MenuItem onClick={logoutUser}>Logout</MenuItem>
                             </Menu>
-                        </Box> : <NavLink to="/login"> <Button sx={{ bgcolor: '#fff', color: '#000', textDecoration: 'none' }} variant="contained">Login</Button></NavLink>}
-                    </div>
+                        </Box> : <Button sx={{ bgcolor: '#ffff' }} onClick={() => history.push('/login')}>Login</Button>}
+                    </Box>
                 </Toolbar>
             </AppBar>
         </Box>
