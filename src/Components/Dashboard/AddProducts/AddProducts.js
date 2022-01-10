@@ -59,6 +59,7 @@ const AddProducts = () => {
                     name="name"
                     variant="outlined"
                     onBlur={handleBlur}
+                    required
                 />
                 <TextField
                     sx={{ width: '95%', my: 1 }}
@@ -67,6 +68,7 @@ const AddProducts = () => {
                     name="description"
                     variant="outlined"
                     onBlur={handleBlur}
+                    required
                 />
                 <TextField
                     sx={{ width: '95%', my: 1 }}
@@ -75,6 +77,7 @@ const AddProducts = () => {
                     name="price"
                     variant="outlined"
                     onBlur={handleBlur}
+                    required
                 />
                 <TextField
                     sx={{ width: '95%', my: 1 }}
@@ -83,6 +86,7 @@ const AddProducts = () => {
                     name="img"
                     variant="outlined"
                     onBlur={handleBlur}
+                    required
                 />
                 <Button
                     onClick={handleAdding}

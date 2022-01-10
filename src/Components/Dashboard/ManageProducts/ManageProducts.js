@@ -36,7 +36,7 @@ const ManageProducts = () => {
                             <TableCell>Name</TableCell>
                             <TableCell>Price</TableCell>
                             <TableCell>Added By</TableCell>
-                            <TableCell>Action</TableCell>
+                            <TableCell>Actions</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

@@ -36,6 +36,7 @@ import ManageOrders from './ManageOrders/ManageOrders';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import AdminRoute from '../AdminRoute/AdminRoute';
+import UpdateProduct from './ManageProducts/ManageProduct/UpdateProduct';
 
 
 const drawerWidth = 240;
@@ -269,6 +270,9 @@ const Dashboard = () => {
                     </AdminRoute>
                     <AdminRoute path={`${path}/manage-products`}>
                         <ManageProducts />
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/update-product/:id`}>
+                        <UpdateProduct />
                     </AdminRoute>
                     <AdminRoute path={`${path}/manage-orders`}>
                         <ManageOrders />

@@ -4,9 +4,11 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import { Button } from '@mui/material';
 import swal from 'sweetalert';
+import { useHistory } from 'react-router-dom';
 
 const ManageProduct = ({ products }) => {
 
+    const history = useHistory();
     const { name, img, price, _id, addby } = products;
 
     const handleProduct = id => {
@@ -40,7 +42,10 @@ const ManageProduct = ({ products }) => {
                 <TableCell align="left">{name}</TableCell>
                 <TableCell align="left">{price}</TableCell>
                 <TableCell align="left">{addby}</TableCell>
-                <TableCell align="left"> <Button sx={{ color: 'error.main', bgcolor: 'text.primary' }} onClick={() => handleProduct(_id)}><DeleteIcon /> </Button> </TableCell>
+                <TableCell align="left">
+                    <Button sx={{ color: 'error.main', bgcolor: 'text.primary' }} onClick={() => handleProduct(_id)}><DeleteIcon /> </Button>
+                    <Button sx={{ bgcolor: 'text.primary', mx: 1 }} onClick={() => history.push(`/dashboard/update-product/${_id}`)}>Update </Button>
+                </TableCell>
             </TableRow >
         </>
     );
