@@ -81,6 +81,7 @@ const BuyProduct = () => {
                             name="name"
                             variant="outlined"
                             onBlur={handleBlur}
+                            required
                         />
                         <TextField
                             sx={{ width: '80%', my: 1 }}
@@ -91,6 +92,7 @@ const BuyProduct = () => {
                             type="email"
                             variant="outlined"
                             onBlur={handleBlur}
+                            required
                         />
                         <TextField
                             sx={{ width: '80%', my: 1 }}
@@ -99,6 +101,7 @@ const BuyProduct = () => {
                             name="number"
                             variant="outlined"
                             onBlur={handleBlur}
+                            required
                         />
                         <TextField
                             sx={{ width: '80%', my: 1 }}
@@ -107,6 +110,7 @@ const BuyProduct = () => {
                             name="address"
                             variant="outlined"
                             onBlur={handleBlur}
+                            required
                         />
                         <Button
                             onClick={handleBooking}
