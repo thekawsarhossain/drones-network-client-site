@@ -33,7 +33,7 @@ const Product = ({ products }) => {
                     <Typography sx={{ py: 1 }} variant="subtitle1" >
                         Price: {price}$
                     </Typography>
-                    <Button variant="contained" sx={{ bgcolor: 'text.primary' }} OnClick={() => history.push(`/product/${_id}`)}>Buy Now</Button>
+                    <Button variant="contained" sx={{ bgcolor: 'text.primary' }} onClick={() => history.push(`/product/${_id}`)}>Buy Now</Button>
                 </CardContent>
             </Card>
         </Grid >
